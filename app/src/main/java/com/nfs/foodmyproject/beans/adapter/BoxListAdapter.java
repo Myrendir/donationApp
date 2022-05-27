@@ -1,6 +1,7 @@
 package com.nfs.foodmyproject.beans.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,30 +14,28 @@ import android.widget.TextView;
 import com.nfs.foodmyproject.R;
 import com.nfs.foodmyproject.beans.Box;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BoxListAdapter extends BaseAdapter {
 
-    private static String logTag = "BOX ADAPTER";
+    private Context context; //context
+    private ArrayList<Box> items; //data source of the list adapter
 
-    private List<Box> boxes;
-    private LayoutInflater layoutInflater;
-    private Context context;
-
-    public BoxListAdapter(Context context, List<Box> boxes) {
-        this.boxes = boxes;
+    //public constructor
+    public BoxListAdapter(Context context, ArrayList<Box> items) {
         this.context = context;
-        layoutInflater = LayoutInflater.from(context);
+        this.items = items;
     }
 
     @Override
     public int getCount() {
-        return boxes.size();
+        return items.size(); //returns total of items in the list
     }
 
     @Override
     public Object getItem(int position) {
-        return boxes.get(position);
+        return items.get(position); //returns list item at the specified position
     }
 
     @Override
@@ -46,32 +45,30 @@ public class BoxListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        // inflate the layout for each list row
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.box, null);
-            holder = new ViewHolder();
-            holder.titleView = (TextView) convertView.findViewById(R.id.TitleTextView);
-            holder.descriptionView = (TextView) convertView.findViewById(R.id.DescriptionTextView);
-            holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
-            holder.progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+            convertView = LayoutInflater.from(context).
+                    inflate(R.layout.box, parent, false);
         }
 
-        Box box = boxes.get(position);
-        holder.titleView.setText(box.getTitle());
-        holder.descriptionView.setText(box.getDescription());
-//        holder.imageView.setImageResource(box.getImage());
-        holder.progressBar.setProgress(box.getPercentage());
+        // get current item to be displayed
+        Box currentItem = (Box) getItem(position);
+
+        // get the TextView for item name and item description
+        TextView textViewItemName = (TextView)
+                convertView.findViewById(R.id.TitleTextView);
+        TextView textViewItemDescription = (TextView)
+                convertView.findViewById(R.id.DescriptionTextView);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
+        ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
+
+        //sets the text for item name and item description from the current item object
+        textViewItemName.setText(currentItem.getTitle());
+        textViewItemDescription.setText(currentItem.getDescription());
+//        imageView.setImageResource(currentItem.getImage());
+        progressBar.setProgress(currentItem.getPercentage());
+
+        // returns the view for the current row
         return convertView;
     }
-
-    static class ViewHolder {
-        ImageView imageView;
-        ProgressBar progressBar;
-        TextView titleView;
-        TextView descriptionView;
-    }
-
 }
