@@ -1,11 +1,13 @@
 package com.nfs.foodmyproject.beans;
 
+import com.nfs.foodmyproject.mapping.ProjetMapping;
+
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Projet implements Serializable {
+public class Projet implements Serializable, ProjetMapping {
 
     private int id;
     private String titre;

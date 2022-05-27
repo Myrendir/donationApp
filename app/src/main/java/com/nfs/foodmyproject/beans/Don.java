@@ -1,6 +1,8 @@
 package com.nfs.foodmyproject.beans;
 
-public class Don {
+import java.io.Serializable;
+
+public class Don implements Serializable {
 
     private int id;
     private Float montant;

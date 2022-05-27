@@ -1,7 +1,7 @@
 package com.nfs.foodmyproject.beans;
 import java.io.Serializable;
 
-public class Utilisateur implements Serializable {
+public class Utilisateur {
 
     private int id;
     private String email;
