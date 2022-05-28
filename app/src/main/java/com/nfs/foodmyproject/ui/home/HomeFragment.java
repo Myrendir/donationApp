@@ -54,10 +54,10 @@ public class HomeFragment extends Fragment {
 
     public ArrayList<Box> getBoxes() {
         ArrayList<Box> boxes = new ArrayList<Box>();
-        boxes.add(new Box("titre 1", "description 1", "image 1",85, LocalDate.now()));
-        boxes.add(new Box("titre 2", "description 2", "image 2",40, LocalDate.now()));
-        boxes.add(new Box("titre 3", "description 3", "image 3",20, LocalDate.now()));
-        boxes.add(new Box("titre 4", "description 4", "image 4",25, LocalDate.now()));
+        boxes.add(new Box("titre 1", "description 1", "https://via.placeholder.com/600x400",85, LocalDate.now()));
+        boxes.add(new Box("titre 2", "description 2", "https://via.placeholder.com/600x400",40, LocalDate.now()));
+        boxes.add(new Box("titre 3", "description 3", "https://via.placeholder.com/600x400",20, LocalDate.now()));
+        boxes.add(new Box("titre 4", "description 4", "https://via.placeholder.com/600x400",25, LocalDate.now()));
         return boxes;
     }
 }

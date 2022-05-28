@@ -1,11 +1,9 @@
 package com.nfs.foodmyproject.beans.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -13,9 +11,9 @@ import android.widget.TextView;
 
 import com.nfs.foodmyproject.R;
 import com.nfs.foodmyproject.beans.Box;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BoxListAdapter extends BaseAdapter {
 
@@ -61,14 +59,17 @@ public class BoxListAdapter extends BaseAdapter {
                 convertView.findViewById(R.id.DescriptionTextView);
         ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
         ProgressBar progressBar = (ProgressBar) convertView.findViewById(R.id.progressBar);
+        TextView textViewPercentage = (TextView) convertView.findViewById(R.id.percentageTextView);
 
-        //sets the text for item name and item description from the current item object
+        Picasso.get().load(currentItem.getImage()).into(imageView);
+
         textViewItemName.setText(currentItem.getTitle());
         textViewItemDescription.setText(currentItem.getDescription());
-//        imageView.setImageResource(currentItem.getImage());
+        String percentage = currentItem.getPercentage() + "%";
+        textViewPercentage.setText(percentage);
+
         progressBar.setProgress(currentItem.getPercentage());
 
-        // returns the view for the current row
         return convertView;
     }
 }
