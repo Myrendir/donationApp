@@ -18,9 +18,9 @@ public class Projet implements Serializable, ProjetMapping {
     private ArrayList<String> photos;
     private ArrayList<Contrepartie> contreparties;
     private ArrayList<Don> dons;
-    private Date date_limite;
+    private String date_limite;
 
-    public Projet(int id, String titre, String presentation, Float montant_a_atteindre, Float montant_actuel, String photo_couverture, ArrayList<String> photos, ArrayList<Contrepartie> contreparties, ArrayList<Don> dons, Date date_limite) {
+    public Projet(int id, String titre, String presentation, Float montant_a_atteindre, Float montant_actuel, String photo_couverture, ArrayList<String> photos, ArrayList<Contrepartie> contreparties, ArrayList<Don> dons, String date_limite) {
         this.id = id;
         this.titre = titre;
         this.presentation = presentation;
@@ -30,6 +30,15 @@ public class Projet implements Serializable, ProjetMapping {
         this.photos = photos;
         this.contreparties = contreparties;
         this.dons = dons;
+        this.date_limite = date_limite;
+    }
+
+    public Projet(int id, String titre, String presentation, Float montant_a_atteindre, Float montant_actuel, String date_limite){
+        this.id = id;
+        this.titre = titre;
+        this.presentation = presentation;
+        this.montant_a_atteindre = montant_a_atteindre;
+        this.montant_actuel = montant_actuel;
         this.date_limite = date_limite;
     }
 
@@ -105,11 +114,11 @@ public class Projet implements Serializable, ProjetMapping {
         this.dons = dons;
     }
 
-    public Date getDate_limite() {
+    public String getDate_limite() {
         return date_limite;
     }
 
-    public void setDate_limite(Date date_limite) {
+    public void setDate_limite(String date_limite) {
         this.date_limite = date_limite;
     }
 }
