@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.nfs.foodmyproject.DAO.DaoFactory;
 import com.nfs.foodmyproject.R;
 import com.nfs.foodmyproject.beans.Box;
+import com.nfs.foodmyproject.beans.ProjetToBoxAdapter;
 import com.nfs.foodmyproject.beans.adapter.BoxListAdapter;
 import com.nfs.foodmyproject.databinding.FragmentHomeBinding;
 
@@ -65,11 +67,7 @@ public class HomeFragment extends Fragment {
     }
 
     public ArrayList<Box> getBoxes() {
-        ArrayList<Box> boxes = new ArrayList<Box>();
-        boxes.add(new Box("titre 1", "description 1", "https://via.placeholder.com/600x400", 85, LocalDate.now()));
-        boxes.add(new Box("titre 2", "description 2", "https://via.placeholder.com/600x400", 40, LocalDate.now()));
-        boxes.add(new Box("titre 3", "description 3", "https://via.placeholder.com/600x400", 20, LocalDate.now()));
-        boxes.add(new Box("titre 4", "description 4", "https://via.placeholder.com/600x400", 25, LocalDate.now()));
-        return boxes;
+        ProjetToBoxAdapter pba = new ProjetToBoxAdapter();
+        return (ArrayList<Box>) pba.ConvertProjetToBox(DaoFactory.getProjetDao(this.getContext()).getAll());
     }
 }

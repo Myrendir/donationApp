@@ -1,5 +1,8 @@
 package com.nfs.foodmyproject;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -29,17 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
         projets = new ArrayList<Projet>();
         initDb();
+
+        if(internetCheck()){
+            //do something
+        }
         String tagSqlite = "lol";
         Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(0).toString());
         Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(1).toString());
         Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(2).toString());
 
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
@@ -56,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
             DaoFactory.getProjetDao(this).addProjet(new Projet(2, "donne l'argent", "je viens chez toi sinon", (float) 10000 , (float) 6735, "04/04/2024"));
             projets = DaoFactory.getProjetDao(this).getAll();
         }
+    }
+
+    private boolean internetCheck(){
+
+        ConnectivityManager cm = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo nInfo = cm.getActiveNetworkInfo();
+        return nInfo != null && nInfo.isAvailable() && nInfo.isConnected();
+
     }
 
 }
