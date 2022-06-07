@@ -1,10 +1,8 @@
 package com.nfs.foodmyproject.beans;
 
-import com.nfs.foodmyproject.mapping.ContrepartieMapping;
-
 import java.io.Serializable;
 
-public class Contrepartie implements Serializable, ContrepartieMapping {
+public class Contrepartie implements Serializable{
 
     private int id;
     private Float montant;

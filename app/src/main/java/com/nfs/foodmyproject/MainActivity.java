@@ -36,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
         if(internetCheck()){
             //do something
         }
-        String tagSqlite = "lol";
-        Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(0).toString());
-        Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(1).toString());
-        Log.d(tagSqlite, DaoFactory.getProjetDao(this).getProjet(2).toString());
-
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
