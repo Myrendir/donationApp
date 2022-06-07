@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.nfs.foodmyproject.R;
 import com.nfs.foodmyproject.beans.Box;
@@ -37,8 +38,19 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final ListView listView = binding.listView;
+        listView = binding.listView;
         homeViewModel.getListView().observe(getViewLifecycleOwner(), listView::addView);
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            //get Item at position
+            Box box = (Box) listView.getItemAtPosition(position);
+            Bundle bundle = new Bundle();
+            bundle.putString("titre", box.getTitle());
+            bundle.putString("description", box.getDescription());
+            bundle.putString("image", box.getImage());
+            bundle.putInt("prix", box.getPercentage());
+            Navigation.findNavController(view).navigate(R.id.navigation_dashboard, bundle);
+        });
 
         boxList = getBoxes();
         bla = new BoxListAdapter(getContext(), boxList);
@@ -54,10 +66,10 @@ public class HomeFragment extends Fragment {
 
     public ArrayList<Box> getBoxes() {
         ArrayList<Box> boxes = new ArrayList<Box>();
-        boxes.add(new Box("titre 1", "description 1", "https://via.placeholder.com/600x400",85, LocalDate.now()));
-        boxes.add(new Box("titre 2", "description 2", "https://via.placeholder.com/600x400",40, LocalDate.now()));
-        boxes.add(new Box("titre 3", "description 3", "https://via.placeholder.com/600x400",20, LocalDate.now()));
-        boxes.add(new Box("titre 4", "description 4", "https://via.placeholder.com/600x400",25, LocalDate.now()));
+        boxes.add(new Box("titre 1", "description 1", "https://via.placeholder.com/600x400", 85, LocalDate.now()));
+        boxes.add(new Box("titre 2", "description 2", "https://via.placeholder.com/600x400", 40, LocalDate.now()));
+        boxes.add(new Box("titre 3", "description 3", "https://via.placeholder.com/600x400", 20, LocalDate.now()));
+        boxes.add(new Box("titre 4", "description 4", "https://via.placeholder.com/600x400", 25, LocalDate.now()));
         return boxes;
     }
 }
