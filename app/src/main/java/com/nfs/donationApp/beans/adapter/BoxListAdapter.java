@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.beans.adapter;
+package com.nfs.donationApp.beans.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.nfs.foodmyproject.R;
-import com.nfs.foodmyproject.beans.Box;
+import com.nfs.donationApp.R;
+import com.nfs.donationApp.beans.Box;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

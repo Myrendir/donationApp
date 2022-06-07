@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.ui.dashboard;
+package com.nfs.donationApp.ui.dashboard;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.nfs.foodmyproject.R;
-import com.nfs.foodmyproject.beans.Palier;
-import com.nfs.foodmyproject.beans.adapter.PalierListAdapter;
-import com.nfs.foodmyproject.databinding.FragmentDashboardBinding;
+import com.nfs.donationApp.R;
+import com.nfs.donationApp.beans.Palier;
+import com.nfs.donationApp.beans.adapter.PalierListAdapter;
+import com.nfs.donationApp.databinding.FragmentDashboardBinding;
 import com.squareup.picasso.Picasso;
 
 import java.time.LocalDate;

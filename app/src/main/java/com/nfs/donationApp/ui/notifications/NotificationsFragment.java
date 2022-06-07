@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.ui.notifications;
+package com.nfs.donationApp.ui.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.nfs.foodmyproject.databinding.FragmentNotificationsBinding;
+import com.nfs.donationApp.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 

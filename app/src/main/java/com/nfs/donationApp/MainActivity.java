@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject;
+package com.nfs.donationApp;
 
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -7,7 +7,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.nfs.foodmyproject.databinding.ActivityMainBinding;
+import com.nfs.donationApp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

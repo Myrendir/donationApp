@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.beans.adapter;
+package com.nfs.donationApp.beans.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.nfs.foodmyproject.R;
-import com.nfs.foodmyproject.beans.Palier;
+import com.nfs.donationApp.R;
+import com.nfs.donationApp.beans.Palier;
 
 import java.util.List;
 

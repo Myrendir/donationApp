@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.ui.home;
+package com.nfs.donationApp.ui.home;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.nfs.foodmyproject.R;
-import com.nfs.foodmyproject.beans.Box;
-import com.nfs.foodmyproject.beans.adapter.BoxListAdapter;
-import com.nfs.foodmyproject.databinding.FragmentHomeBinding;
+import com.nfs.donationApp.R;
+import com.nfs.donationApp.beans.Box;
+import com.nfs.donationApp.beans.adapter.BoxListAdapter;
+import com.nfs.donationApp.databinding.FragmentHomeBinding;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

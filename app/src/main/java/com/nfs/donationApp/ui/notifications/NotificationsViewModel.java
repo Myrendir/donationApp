@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.ui.notifications;
+package com.nfs.donationApp.ui.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

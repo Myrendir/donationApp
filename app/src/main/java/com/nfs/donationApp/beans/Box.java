@@ -1,4 +1,4 @@
-package com.nfs.foodmyproject.beans;
+package com.nfs.donationApp.beans;
 
 import java.time.LocalDate;
 
